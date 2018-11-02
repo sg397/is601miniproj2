@@ -7,6 +7,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
+use DB;
 
 class UserTest extends TestCase
 {
@@ -15,8 +16,8 @@ class UserTest extends TestCase
     public function testUserInsert()
     {
         $user = new User;
-
-        $user->id = 99;
+        $newId= DB::table('users')->max('id')+1;
+        $user->id = $newId;
         $user->name = 'Aavaa Bbbzb';
         $user->email = 'Aaaaa.Bvbbb@gmail.com';
         $user->password = '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm';
@@ -37,7 +38,8 @@ class UserTest extends TestCase
     /*test to update User Name to Steve Smith*/
     public function testUserUpdate()
     {
-        $user = User::findOrFail(99);
+        $newId= DB::table('users')->max('id');
+        $user = User::findOrFail($newId);
         $user->name = 'Steve Smith';
         $user->save();
 
@@ -46,7 +48,8 @@ class UserTest extends TestCase
     /*test user delete*/
     public function testUserDelete()
     {
-        $user = User::findOrFail(99);
+        $newId= DB::table('users')->max('id');
+        $user = User::findOrFail($newId);
         $user->delete();
 
     }
