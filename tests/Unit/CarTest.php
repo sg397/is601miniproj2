@@ -13,12 +13,12 @@ class CarTest extends TestCase
     /*Test Car insert*/
     public function testCarInsert()
     {
-        $models = Array ('Ford','Honda','Toyota');
+        $makes = Array ('Ford','Honda','Toyota');
         $index = rand(0,2);
 
         $car = new Car;
         $car->id = 99;
-        $car->make = $models[$index];
+        $car->make = $makes[$index];
         $car->model = 'Van';
         $car->year = 1995;
 
@@ -59,5 +59,24 @@ class CarTest extends TestCase
             $this->assertTrue(false);
         }
 
+    }
+
+    /*test make is one of the 3 values  ford / honda / toyota*/
+    /*year data type test*/
+    public function testCarMake()
+    {
+        $makes = Array ('Ford','Honda','Toyota');
+
+        $car = Car::inRandomOrder()->first();
+        $flag = false;
+        foreach ($makes as $make){
+            if($make == $car->make){
+                $flag = true;
+                break;
+            }
+        }
+        if(!$flag){
+            $this->assertTrue(false);
+        }
     }
 }
