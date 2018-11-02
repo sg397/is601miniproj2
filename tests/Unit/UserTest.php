@@ -51,4 +51,11 @@ class UserTest extends TestCase
 
     }
 
+    /*test user seed count*/
+    public function testUserSeedCount()
+    {
+        $users = User::all();
+        dd($users->count());
+    }
+
 }
