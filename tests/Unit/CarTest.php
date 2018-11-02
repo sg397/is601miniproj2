@@ -9,6 +9,14 @@ use App\Car;
 
 class CarTest extends TestCase
 {
+
+    public function testCleanup()
+    {
+        $car = Car::findOrFail(99);
+        $car->delete();
+    }
+
+
     /*Test Car insert*/
     public function testCarInsert()
     {
@@ -24,4 +32,14 @@ class CarTest extends TestCase
         $car->save();
         $this->assertNotEmpty(Car::findOrFail($car->id));
     }
+
+    /*update car year=2000 */
+    public function testUpdateYear()
+    {
+        $car = Car::findOrFail(99);
+        $car->year = 2000;
+        $car->save();
+    }
+
+
 }
