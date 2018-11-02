@@ -34,4 +34,14 @@ class UserTest extends TestCase
          $user->save();
     }
 
+    /*test to update User Name to Steve Smith*/
+    public function testUserUpdate()
+    {
+        $user = User::findOrFail(99);
+        $user->name = 'Steve Smith';
+        $user->save();
+
+    }
+
+
 }
