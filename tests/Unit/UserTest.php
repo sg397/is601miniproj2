@@ -51,11 +51,11 @@ class UserTest extends TestCase
 
     }
 
-    /*test user seed count*/
+    /*test user seed count==50*/
     public function testUserSeedCount()
     {
         $users = User::all();
-        dd($users->count());
+        $this->assertTrue($users->count()===50);
     }
 
 }
