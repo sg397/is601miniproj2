@@ -10,6 +10,7 @@ use App\User;
 
 class UserTest extends TestCase
 {
+
     /*Insert  User Test*/
     public function testUserInsert1()
     {
@@ -21,8 +22,16 @@ class UserTest extends TestCase
         $user->password = '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm';
 
         $user->save();
-        $user = User::findOrFail($user->id);
+        User::findOrFail($user->id);
 
+    }
+
+    /*Test to update name of a user*/
+    public function testUserUpdate()
+    {
+         $user = User::findOrFail(99);
+         $user->name ='Sunitha Giridipudi';
+         $user->save();
     }
 
 }
