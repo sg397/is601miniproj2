@@ -15,4 +15,13 @@ class PagesStatusTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /*Login Page unit test*/
+    public function testLoginPage()
+    {
+        $response = $this->get('/login');
+
+        $response->assertStatus(200);
+    }
+
 }
