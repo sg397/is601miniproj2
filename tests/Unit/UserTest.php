@@ -12,7 +12,7 @@ class UserTest extends TestCase
 {
 
     /*Insert  User Test*/
-    public function testUserInsert1()
+    public function testUserInsert()
     {
         $user = new User;
 
@@ -43,5 +43,12 @@ class UserTest extends TestCase
 
     }
 
+    /*test user delete*/
+    public function testUserDelete()
+    {
+        $user = User::findOrFail(99);
+        $user->delete();
+
+    }
 
 }
