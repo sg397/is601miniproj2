@@ -32,4 +32,12 @@ class PagesStatusTest extends TestCase
         $response->assertStatus(200);
     }
 
+    /*Contact Page unit test*/
+    public function testContactPage()
+    {
+        $response = $this->get('/contact');
+
+        $response->assertStatus(200);
+    }
+
 }
