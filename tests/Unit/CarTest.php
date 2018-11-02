@@ -9,13 +9,6 @@ use App\Car;
 
 class CarTest extends TestCase
 {
-    /* delete car test */
-    public function testCarDelete()
-    {
-        $car = Car::findOrFail(99);
-        $car->delete();
-    }
-
 
     /*Test Car insert*/
     public function testCarInsert()
@@ -41,5 +34,18 @@ class CarTest extends TestCase
         $car->save();
     }
 
+    /* delete car test */
+    public function testCarDelete()
+    {
+        $car = Car::findOrFail(99);
+        $car->delete();
+    }
+
+    /*test Car seed count==50*/
+    public function testCarSeedCount()
+    {
+        $cars = Car::all();
+        $this->assertTrue($cars->count()===50);
+    }
 
 }
