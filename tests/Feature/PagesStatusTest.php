@@ -24,4 +24,12 @@ class PagesStatusTest extends TestCase
         $response->assertStatus(200);
     }
 
+    /*About Page unit test*/
+    public function testAboutPage()
+    {
+        $response = $this->get('/about');
+
+        $response->assertStatus(200);
+    }
+
 }
