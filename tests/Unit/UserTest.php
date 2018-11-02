@@ -42,6 +42,7 @@ class UserTest extends TestCase
         $user = User::findOrFail($newId);
         $user->name = 'Steve Smith';
         $user->save();
+        $this->assertTrue($user->name === 'Steve Smith');
 
     }
 
@@ -52,6 +53,11 @@ class UserTest extends TestCase
         $user = User::findOrFail($newId);
         $user->delete();
 
+        $user = User::find($newId);
+
+        $this->assertNull($user);
+
+
     }
 
     /*test to count the rows in users table*/
@@ -59,8 +65,8 @@ class UserTest extends TestCase
     {
         $users = User::all();
         $userCount = $users->count();
-
         //$this->assertTrue($users->count()===50);
+        $this->assertTrue(true);
     }
 
 }
