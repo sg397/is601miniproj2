@@ -9,8 +9,8 @@ use App\Car;
 
 class CarTest extends TestCase
 {
-
-    public function testCleanup()
+    /* delete car test */
+    public function testCarDelete()
     {
         $car = Car::findOrFail(99);
         $car->delete();
