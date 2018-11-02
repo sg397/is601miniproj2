@@ -11,10 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ContactPageController@home')->name('home');
+Route::get('/contact', 'ContactPageController@contact')->name('contact');
+Route::post('/contact', 'ContactPageController@store')->name('contact.store');
+Route::get('/thanks/{name}', 'ContactPageController@thanks')->name('thanks');
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
