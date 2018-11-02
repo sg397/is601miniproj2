@@ -48,4 +48,16 @@ class CarTest extends TestCase
         $this->assertTrue($cars->count()===50);
     }
 
+    /*year data type test*/
+    public function testCarYearDataType()
+    {
+        $car = Car::inRandomOrder()->first();
+        try{
+            $this->assertInternalType('int', (int)$car->year);
+        }catch(Exception $e) {
+            //if any number format exception
+            $this->assertTrue(false);
+        }
+
+    }
 }
