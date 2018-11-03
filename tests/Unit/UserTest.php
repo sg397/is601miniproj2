@@ -46,6 +46,7 @@ class UserTest extends TestCase
 
     }
 
+
     /*test user delete*/
     public function testUserDelete()
     {
@@ -57,8 +58,9 @@ class UserTest extends TestCase
 
         $this->assertNull($user);
 
-
     }
+
+
 
     /*test to count the rows in users table*/
     public function testUserSeedCount()
@@ -68,5 +70,6 @@ class UserTest extends TestCase
         //$this->assertTrue($users->count()===50);
         $this->assertTrue(true);
     }
+
 
 }

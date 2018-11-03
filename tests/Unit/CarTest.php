@@ -9,7 +9,6 @@ use App\Car;
 use DB;
 class CarTest extends TestCase
 {
-
     /*Test Car insert*/
     public function testCarInsert()
     {
@@ -74,7 +73,6 @@ class CarTest extends TestCase
     }
 
     /*test make is one of the 3 values  ford / honda / toyota*/
-    /*year data type test*/
     public function testCarMake()
     {
         $makes = Array ('Ford','Honda','Toyota');
@@ -100,4 +98,5 @@ class CarTest extends TestCase
         $this->assertInternalType('string', $car->model);
 
     }
+
 }
